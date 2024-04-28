@@ -1,5 +1,6 @@
 package com.siferga.collaboratorsManager.service;
 
+import com.siferga.collaboratorsManager.exception.UserNotFoundException;
 import com.siferga.collaboratorsManager.model.Collaborator;
 import com.siferga.collaboratorsManager.repository.CollaboratorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,9 @@ public class CollaboratorService {
     }
 
    public Collaborator findCollaboratorById(Long id) {
-        return collaboratorRepository.findCollaboratorById(id);
+        return collaboratorRepository.findCollaboratorById(id)
+                .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
+
     }
 
     public void deleteCollaborator(Long id) {
