@@ -85,6 +85,11 @@ public class Collaborator implements Serializable {
     public void setColCode(String colCode) {
         this.colCode = colCode;
     }
-
+    @Override
+    public String toString() {
+        return "Collaborator [id=" + id + ", name=" + name + ", email=" + email
+                + ", jobTitle=" + jobTitle + ", colPhone=" + colPhone + ", imageUrl="
+                + imageUrl + ", colCode=" + colCode + "]";
+    }
 
 }
